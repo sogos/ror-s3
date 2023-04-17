@@ -1,0 +1,23 @@
+<!-- A erb template to show a new Card, title, description and image. -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><%= @card.title %></h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="<%= url_for(@card.image) %>" class="max-w-xl" alt="Responsive image">
+              <img src="<%= url_for(rails_storage_proxy_path(@card.image)) %>" class="max-w-xl" alt="Responsive image">
+            </div>
+            <div class="col-md-8">
+              <p class="card-text"><%= @card.description %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

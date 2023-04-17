@@ -1,0 +1,37 @@
+<!-- A erb template to create a new card form, title, description and image. -->
+<div class="container">
+<div class="row">
+    <div class="max-w-xl mx-auto">
+      <h1>New Card</h1>
+      <%= form_for @card do |f| %>
+        <div class="form-group">
+          <%= f.label :title, class: "block text-sm font-semibold leading-6 text-gray-900" %>
+          <%= f.text_field :title, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <% @card.errors.full_messages_for(:title).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description, class: "block text-sm font-semibold leading-6 text-gray-900" %>
+          <%= f.text_area :description, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <% @card.errors.full_messages_for(:description).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.label :image, class: "block text-sm font-semibold leading-6 text-gray-900" %>
+          <%= f.file_field :image, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          <% @card.errors.full_messages_for(:image).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <%= f.submit "Create Card", class: "mt-4 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+      <% end %>
+    </div>
+  </div>
+  <a href="/cards/" class="mt-4">
+    <button type="button" class="inline-flex items-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+      Return
+    </button>
+  </a>
+</div>
